@@ -13,6 +13,9 @@
 !/log/.keep
 !/tmp/.keep
 
+/config/database.yml
+/public/uploads
+
 /node_modules
 /yarn-error.log
 
