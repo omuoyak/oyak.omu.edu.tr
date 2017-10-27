@@ -15,7 +15,7 @@ class Admin::PostsController < AdminController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to @post, notice: 'Eklendi'
+      redirect_to admin_post_path(@post), notice: 'Eklendi'
     else
       render :new
     end
