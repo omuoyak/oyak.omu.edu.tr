@@ -3,12 +3,14 @@ table.table.table-striped
     tr
       th Başlık
       th Tarih
+      th Kategoriler
       th İşlem
   tbody
     -@posts.each do |post|
       tr
         td=post.title
         td=time_tag(post.created_at)
+        td=post.categories.map(&:title).join(',')
         td
           =link_to admin_post_path(post), class:"btn btn-xs btn-primary" do
             i.fa.fa-eye

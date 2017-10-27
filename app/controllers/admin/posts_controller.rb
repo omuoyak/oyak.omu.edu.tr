@@ -6,7 +6,7 @@ class Admin::PostsController < AdminController
   end
 
   def index
-    @posts = Post.all.order(id: :desc)
+    @posts = Post.includes(:categories).all.order(id: :desc)
   end
 
   def show; end
@@ -18,6 +18,14 @@ class Admin::PostsController < AdminController
       redirect_to admin_post_path(@post), notice: 'Eklendi'
     else
       render :new
+    end
+  end
+
+  def update
+    if @post.update post_params
+      redirect_to admin_post_path(@post), notice: 'Güncellendi'
+    else
+      render :edit
     end
   end
 
