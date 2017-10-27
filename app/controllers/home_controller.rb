@@ -3,7 +3,8 @@ class HomeController < ApplicationController
   def index; end
 
   def blog
-    @Posts = Post.order(id: :desc).last(20)
+    # Son 20 Blog Yazısını Çek
+    @posts = Post.order(id: :desc).last(20)
   end
 
   def docs
@@ -14,10 +15,10 @@ class HomeController < ApplicationController
   def post
     url = params[:sef].split('--')
     if url.last
-      @Post = Post.find(url.last)
-      if @Post && url.first == @Post.sef_link
+      @post = Post.find(url.last)
+      if @post && url.first == @post.sef_link
       else
-        redirect_to show_post_path(sef: @Post.url)
+        redirect_to show_post_path(sef: @post.url)
       end
     else
       redirect_to root_path
