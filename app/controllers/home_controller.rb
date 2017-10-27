@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-    @latest_posts = Post.last(5)
+    @latest_posts = Post.last(5).reverse
   end
 
   def blog
