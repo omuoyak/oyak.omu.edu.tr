@@ -1,6 +1,1 @@
-= simple_form_for(@Post, html: { class: 'form-horizontal' }) do |f|
-  = f.input :title, label: 'Başlık'
-  = f.input :body, as: :text, label: 'İçerik'
-  = f.association :categories, as: :select, label: 'Kategoriler'
-  = f.input :keywords, class:"form-control", label: 'Etiketler'
-  = f.button :submit, 'Kaydet'
+=render 'form', locals: {path: admin_posts_path}

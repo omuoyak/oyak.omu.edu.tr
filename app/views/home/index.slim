@@ -38,11 +38,8 @@
   .col-md-6
     hr
     h1 Yazılar
-    p Ruby Kurulumu
-    p Go Kurulumu
-    p Vagrant Kurulumu
-    p Vagrant Nedir?
-    p Sanal Makine Nedir ? Sanallaştırma Nasıl Yapılır
+    -@latest_posts.each do |post|
+      p =link_to post.title, show_post_path(post.url)
   .col-md-12
     h1 Yapım Aşamasında
     p Şimdilik "Lorem Ipsum" yerine bu yazılar kalsın.

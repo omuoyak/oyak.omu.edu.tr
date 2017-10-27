@@ -1,1 +1,9 @@
-h1=@post.title
+.row
+  .col-md-8
+    h2=@post.title
+  .col-md-4
+    span=time_tag(@post.created_at.to_date)
+  .col-md-12
+    hr
+  .col-md-12
+    p=@post.body.html_safe

@@ -1,17 +1,21 @@
-class Admin::PostsController < ApplicationController
+class Admin::PostsController < AdminController
   before_action :set_post, only: [:show, :edit, :destroy, :update]
 
   def new
-    @Post = Post.new
+    @post = Post.new
   end
 
-  def show
+  def index
+    @posts = Post.all.order(id: :desc)
   end
+
+  def show; end
+  def edit; end
 
   def create
-    @Post = Post.new(post_params)
-    if @Post.save
-      redirect_to @Post, notice: 'Eklendi'
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to @post, notice: 'Eklendi'
     else
       render :new
     end
@@ -24,7 +28,7 @@ class Admin::PostsController < ApplicationController
   end
 
   def set_post
-    @Post = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
 end

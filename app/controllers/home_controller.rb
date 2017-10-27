@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
 
-  def index; end
+  def index
+    @latest_posts = Post.last(5)
+  end
 
   def blog
     # Son 20 Blog Yazısını Çek
@@ -18,7 +20,7 @@ class HomeController < ApplicationController
       @post = Post.find(url.last)
       if @post && url.first == @post.sef_link
       else
-        redirect_to show_post_path(sef: @post.url)
+        redirect_to admin_post_path(sef: @post.url)
       end
     else
       redirect_to root_path

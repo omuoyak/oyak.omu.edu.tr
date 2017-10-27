@@ -1,0 +1,22 @@
+table.table.table-striped
+  thead
+    tr
+      th Başlık
+      th Tarih
+      th İşlem
+  tbody
+    -@posts.each do |post|
+      tr
+        td=post.title
+        td=time_tag(post.created_at)
+        td
+          =link_to admin_post_path(post), class:"btn btn-xs btn-primary" do
+            i.fa.fa-eye
+          |&nbsp;&nbsp;
+            
+          =link_to edit_admin_post_path(post), class:"btn btn-xs btn-warning" do
+            i.fa.fa-edit
+          |&nbsp;&nbsp;
+          =link_to admin_post_path(post), method: :delete, data: {confirm: "Emin misin?"}, class:"btn btn-xs btn-danger" do
+            i.fa.fa-trash
+          

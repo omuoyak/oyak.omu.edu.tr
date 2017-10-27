@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   get 'blog', to: 'home#blog', as: 'show_blog'
   get 'dokumantasyon', to: 'home#docs', as: 'oyak_doc'
 
-  scope :admin, module: :admin do
-    resources :posts
+  authenticate :user do
+    scope :admin, module: :admin, as:'admin' do
+      get '/', to: 'main#home',  as:"root"
+      resources :posts
+    end
   end
 
 

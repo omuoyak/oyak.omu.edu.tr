@@ -1,1 +1,8 @@
-=@Post.inspect
+.row
+  h2 =@post.title
+  p =@post.body.html_safe
+  hr
+  .col-md-9
+    |Etiketler: #{@post.keywords}
+  .col-md-3
+    =link_to 'Düzenle', edit_admin_post_path(@post), class:"btn btn-xs btn-warning"
