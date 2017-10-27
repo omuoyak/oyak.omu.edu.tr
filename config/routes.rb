@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'yazi/:sef', to: 'home#post', as: 'show_post'
   get 'blog', to: 'home#blog', as: 'show_blog'
+  get 'dokumantasyon', to: 'home#docs', as: 'oyak_doc'
 
   scope :admin, module: :admin do
     resources :posts

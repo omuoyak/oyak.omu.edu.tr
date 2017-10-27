@@ -1,10 +1,14 @@
 class HomeController < ApplicationController
 
-  def index
-  end
+  def index; end
 
   def blog
     @Posts = Post.order(id: :desc).last(20)
+  end
+
+  def docs
+    # TODO: Dökümantasyonu getir
+    # pry
   end
 
   def post
