@@ -8,7 +8,7 @@
       b Kapak
       = f.file_field :cover
       #cover_preview
-        -if @post.cover
+        -if @post.cover_url
           =image_tag(@post.cover_url(:display), class:'img-responsive')
       hr
       = f.association :categories, as: :select, label: 'Kategoriler'
