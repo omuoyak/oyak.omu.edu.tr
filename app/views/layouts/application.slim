@@ -2,10 +2,13 @@ doctype html
 html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
-    title Özgür Yazılım ve Açık Kaynak Topluluğu - OMÜ
-    meta description="Ondokuzmayıs Üniversitesi Özgür Yazılım ve Açık Kaynak Topluluğu"
-    meta keywords="omü öyak,öyak,linux,ruby,özgür yazılım,açık kaynak"
+    title
+      =yield :title
+      =settings['title']
+    meta description="#{settings['description']}"
+    meta keywords="#{settings['keywords']}"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
+    =yield :og_links
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
@@ -14,3 +17,4 @@ html
     = render 'navbar'
     .container
       = yield
+    =yield :footer_js
