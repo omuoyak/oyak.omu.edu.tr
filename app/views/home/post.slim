@@ -1,25 +1,59 @@
+=content_for :title do
+  |#{@post.title} |
+
+=content_for :og_links do
+  meta property="og:title" content="#{@post.title} | #{settings['title']}"
+  meta property="og:description" content="#{truncate(strip_tags(@post.body), length: 120)}"
+  meta property="og:site_name" content="#{settings['title']}"
+  meta property="og:url" content="#{settings['uri']}/#{@post.url}"
+  meta property="og:type" content="website"
+  meta property="og:image" content="#{settings['uri']}#{@post.cover_url(:display)}"
+
+  meta name="twitter:card" content="summary"
+  meta name="twitter:url" content="#{settings['uri']}/#{@post.url}"
+  meta name="twitter:title" content="#{@post.title} | #{settings['title']}"
+  meta name="twitter:description" content="#{truncate(strip_tags(@post.body), length: 120)}"
+  meta name="twitter:image" content="#{settings['uri']}#{@post.cover_url(:display)}"
+
 .row
-  .col-md-8
-    h2=@post.title
-  .col-md-4
-    span=time_tag(@post.created_at.to_date)
   .col-md-12
-    hr
+    ol.breadcrumb
+      li
+        =link_to 'Anasayfa', root_path
+      li
+        a Yazılar
+      li.active=@post.title
+    .page-header
+      h1
+        =@post.title
+        small
+          |(
+          =time_tag(@post.created_at.to_date)
+          |)
   .col-md-12
+    =image_tag(@post.cover_url(:display), class:'img-responsive', style:'margin: 0 auto;') if @post.cover?
     p=@post.body.html_safe
+    p
+      #share
   .col-md-12
     hr
     h2 Yorum Yapın
     #disqus_thread
-    javascript:
-      var disqus_config = function () {
-      this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-      };
-      (function() { // DON'T EDIT BELOW THIS LINE
-      var d = document, s = d.createElement('script');
-      s.src = 'https://omu-oyak.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-      })();
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+=content_for :footer_js do
+  javascript:
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://omu-oyak.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+
+    $("#share").jsSocials({
+        shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
+    });
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
