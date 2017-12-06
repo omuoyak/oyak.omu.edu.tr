@@ -24,6 +24,8 @@ gem 'simple_form'
 gem "github_api"
 gem "wysiwyg-rails"
 
+gem "rails-settings-cached"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'

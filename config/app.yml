@@ -1,0 +1,15 @@
+# config/app.yml for rails-settings-cached
+defaults: &defaults
+  title: 'Özgür Yazılım ve Açık Kaynak Topluluğu - OMÜ'
+  description: 'Ondokuzmayıs Üniversitesi Özgür Yazılım ve Açık Kaynak Topluluğu'
+  keywords: 'omü öyak,öyak,linux,ruby,özgür yazılım,açık kaynak'
+  uri: 'http://oyak.omu.edu.tr'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
