@@ -14,6 +14,9 @@ class CoverUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+  def default_url(*args)
+    "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+  end
 
   version :thumb do
     process resize_to_fit: [50, 50]
