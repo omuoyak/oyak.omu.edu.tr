@@ -1,6 +1,16 @@
 = simple_form_for(@post, url: locals[:path], html: { class: 'form-horizontal' }) do |f|
-  = f.input :title, label: 'Başlık'
-  = f.input :body, as: :text, label: 'İçerik'
-  = f.association :categories, as: :select, label: 'Kategoriler'
-  = f.input :keywords, class:"form-control", label: 'Etiketler'
-  = f.button :submit, 'Kaydet', class:"btn btn-success"
+  .row
+    .col-md-8
+      = f.input :title, label: 'Başlık'
+      = f.input :body, as: :text, label: 'İçerik'
+      = f.button :submit, 'Kaydet', class:"btn btn-success"
+    .col-md-3.col-md-offset-1
+      b Kapak
+      = f.file_field :cover
+      #cover_preview
+        -if @post.cover
+          =image_tag(@post.cover_url(:display), class:'img-responsive')
+      hr
+      = f.association :categories, as: :select, label: 'Kategoriler'
+      hr
+      = f.input :keywords, class:"form-control", label: 'Etiketler'

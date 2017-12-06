@@ -32,7 +32,7 @@ class Admin::PostsController < AdminController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :keywords, category_ids: [])
+    params.require(:post).permit(:title, :cover, :body, :keywords, category_ids: [])
   end
 
   def set_post

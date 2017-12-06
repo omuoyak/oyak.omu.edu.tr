@@ -28,6 +28,15 @@ gem "wysiwyg-rails"
 # gem 'capistrano-rails', group: :development
 gem 'devise'
 
+#turkish_support
+gem 'turkish_support'
+gem 'iconv'
+gem 'htmlentities'
+
+#image processing
+gem "rmagick", "~> 2.13.1"
+gem 'carrierwave'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'

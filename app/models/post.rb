@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  mount_uploader :cover, CoverUploader
+
   has_and_belongs_to_many :categories
   before_create :sef
 
