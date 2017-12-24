@@ -1,0 +1,37 @@
+.row
+  .col-md-12
+    ol.breadcrumb
+      li
+        =link_to 'Anasayfa', root_path
+      li.active Yazılar
+.row
+  .col-md-9
+    -@posts.each do |post|
+      .col-md-12
+        .col-xs-12.col-md-5
+          =link_to show_post_path(post.url) do
+            =image_tag(post.cover_url(:display),  class:'img-responsive')
+        .col-xs-12.col-md-7
+          .post
+            .title
+              =link_to post.title, show_post_path(post.url)
+            .information
+              i.fa.fa-user
+              |&nbsp;
+              =post.user.name
+              |&nbsp;|&nbsp;
+              i.fa.fa-calendar
+              |&nbsp;
+              =time_tag post.created_at.to_date
+              |&nbsp;
+              i.fa.fa-tags
+              |&nbsp;
+              =post.categories.map(&:title).join(',')
+            =truncate(strip_tags(post.body), length: 120)
+            br
+            =link_to 'İncele', show_post_path(post.url), class: 'btn btn-xs btn-primary'
+      .col-md-12
+        hr
+    = paginate @posts
+  .col-md-3
+    =render 'sidebar'

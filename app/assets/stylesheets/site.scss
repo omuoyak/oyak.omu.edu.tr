@@ -1,0 +1,37 @@
+.information{
+  .fa{
+    color: #c6c6c6;
+  }
+}
+.post {
+  .title{
+    width: 100%;
+    padding: 5px 0px 5px 0px;
+    border-radius: 5px;
+    a{
+      font-size: 20px;
+      color: #2C3E50;
+      &:hover{
+        text-decoration: none;
+        color: #ECF0F1;
+      }
+    }
+  }
+}
+.information{
+  background: #ECF0F1;
+  width: 100%;
+  height: auto;
+  font-size: 12px;
+  padding: 3px;
+}
+
+.sidebar{
+  .title{
+    width: 100%;
+    background: #f5f5f5;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+}

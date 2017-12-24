@@ -1,0 +1,7 @@
+ol.breadcrumb
+  li
+    =link_to 'Anasayfa', root_path
+  li
+    a Yazılar
+  -@path.each do |pt|
+    li class="#{pt['class']}"=pt['title']

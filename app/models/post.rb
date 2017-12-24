@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   mount_uploader :cover, CoverUploader
 
   has_and_belongs_to_many :categories
+  belongs_to :user
   before_create :sef
 
   def url

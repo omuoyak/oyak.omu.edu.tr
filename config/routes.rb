@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#index'
-  get 'yazi/:sef', to: 'home#post', as: 'show_post'
-  get 'blog', to: 'home#blog', as: 'show_blog'
+  get 'yazi/:sef', to: 'posts#show', as: 'show_post'
+  get 'blog', to: 'posts#index', as: 'show_blog'
   get 'dokumantasyon', to: 'home#docs', as: 'oyak_doc'
 
   authenticate :user do

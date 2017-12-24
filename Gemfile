@@ -19,6 +19,8 @@ gem 'jquery-rails'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'rails-i18n', '~> 5.0.0' # For 5.0.x and 5.1.x
+gem 'kaminari'
 
 gem 'simple_form'
 gem "github_api"

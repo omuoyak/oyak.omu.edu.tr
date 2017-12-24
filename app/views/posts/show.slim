@@ -20,8 +20,8 @@
     ol.breadcrumb
       li
         =link_to 'Anasayfa', root_path
-      li
-        a Yazılar
+      li=link_to 'Yazılar', show_blog_path
+      li=link_to @post.categories.first.title
       li.active=@post.title
     .page-header
       h1
