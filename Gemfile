@@ -24,7 +24,7 @@ gem 'kaminari'
 
 gem 'simple_form'
 gem "github_api"
-gem "wysiwyg-rails"
+gem 'tinymce-rails'
 
 gem "rails-settings-cached"
 

@@ -4,7 +4,7 @@
   .row
     .col-md-8
       = f.input :title, label: 'Başlık'
-      = f.input :body, as: :text, label: 'İçerik',input_html: { id: 'froala'}
+      = f.input :body, as: :text, label: 'İçerik',input_html: { class: 'tinymce'}
       = f.button :submit, 'Kaydet', class:"btn btn-success"
     .col-md-3.col-md-offset-1
       b Kapak
