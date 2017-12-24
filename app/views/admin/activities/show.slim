@@ -1,0 +1,6 @@
+.row
+  h2 =@activity.name
+  p =@activity.detail.html_safe
+  p =image_tag(@activity.poster_url(:display))
+  hr
+  =link_to 'Düzenle', edit_admin_activity_path(@activity), class:"btn btn-xs btn-warning"

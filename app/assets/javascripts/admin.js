@@ -31,12 +31,12 @@
 
 
 document.addEventListener('turbolinks:load', function(){
-  $('#post_body').froalaEditor({
+  $('#froala').froalaEditor({
     language: 'tr'
   })
 });
 
 
 document.addEventListener('turbolinks:before-cache', function(){
-  $('#post_body').remove();
+  $('#froala').remove();
 })

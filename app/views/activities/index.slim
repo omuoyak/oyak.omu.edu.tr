@@ -1,0 +1,10 @@
+.row
+  -@activities.each do |activity|
+    .col-xs-12.col-sm-4.col-md-3
+      .thumbnail
+        =image_tag activity.poster_url(:display)
+        .caption style="text-align:center;"
+          h4=truncate(activity.name, length: 22)
+          p=time_tag(activity.date)
+          p
+            =link_to 'İncele', show_activity_path(activity.url), class: 'btn btn-danger'

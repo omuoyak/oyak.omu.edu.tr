@@ -1,8 +1,10 @@
 = simple_form_for(@post, url: locals[:path], html: { class: 'form-horizontal' }) do |f|
+  -if @post.errors.any?
+    =@post.errors.full_messages.join(',')
   .row
     .col-md-8
       = f.input :title, label: 'Başlık'
-      = f.input :body, as: :text, label: 'İçerik'
+      = f.input :body, as: :text, label: 'İçerik',input_html: { id: 'froala'}
       = f.button :submit, 'Kaydet', class:"btn btn-success"
     .col-md-3.col-md-offset-1
       b Kapak

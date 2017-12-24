@@ -5,11 +5,28 @@ class Post < ApplicationRecord
   belongs_to :user
   before_create :sef
 
+  after_commit on: [:create] do
+    clear_caches
+  end
+
+  after_commit on: [:update] do
+    clear_caches
+  end
+
+  after_commit on: [:destroy] do
+    clear_caches
+  end
+
   def url
     "#{sef_link}--#{id}.html"
   end
 
   def sef
     self.sef_link = title.parameterize unless sef_link?
+  end
+
+  private
+  def clear_caches
+    Rails.cache.delete('latest_posts')
   end
 end

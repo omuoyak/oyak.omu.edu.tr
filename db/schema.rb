@@ -10,14 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171224104348) do
+ActiveRecord::Schema.define(version: 20171224134033) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "title"
-    t.string "body"
-    t.string "cover"
-    t.date "date"
-    t.string "place"
+    t.string "name"
+    t.string "speaker"
+    t.datetime "date"
+    t.string "detail"
+    t.string "location"
+    t.string "poster"
+    t.string "sef_link"
+    t.integer "tbs_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     if url.last
       @post = Post.includes(:categories).find(url.last)
       unless @post && url.first == @post.sef_link
-        redirect_to admin_post_path(sef: @post.url)
+        redirect_to show_post_path(sef: @post.url)
       else
 
       end

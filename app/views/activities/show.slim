@@ -1,0 +1,16 @@
+.row
+  .col-md-3
+    =link_to image_tag(@activity.poster_url(:display), class:'img-responsive'), @activity.poster_url, target: :blank
+  .col-md-9
+    h3=@activity.name
+    b Tarih:&nbsp;
+    =time_tag @activity.date
+    br
+    b Konuşmacı: &nbsp;
+    =@activity.speaker
+    br
+    b Yer: &nbsp;
+    =@activity.location
+    br
+    b Detay: &nbsp;
+    =@activity.detail.html_safe

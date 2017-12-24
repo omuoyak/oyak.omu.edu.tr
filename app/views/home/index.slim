@@ -29,12 +29,15 @@
 .row
   .col-md-6
     hr
-    h1 Haberler
-    p 2017 Tanışma Toplantımızı Yaptık
-    p Tanışma Toplantımıza Bekleriz
-    p Yazılım Özgürlüğü Gününüz Kutlu Olsun
-    p Dünya Yazılımcılar Gününüz Kutlu Olsun
-    p Sosyal Medya Hesaplarımız Yayında!
+    h1 Etkinlikler
+    -@latest_activities.each do |activity|
+      .media
+        .media-left
+          =link_to show_activity_path(activity.url) do
+            =image_tag(activity.poster_url(:thumb), class:'media-object')
+        .media-body
+          h4.media-heading =link_to activity.name, show_activity_path(activity.url)
+          =time_tag(activity.date.to_date)
   .col-md-6
     hr
     h1 Yazılar
@@ -47,6 +50,3 @@
         .media-body
           h4.media-heading =link_to post.title, show_post_path(post.url)
           =truncate(strip_tags(post.body), length: 60)
-  .col-md-12
-    h1 Yapım Aşamasında
-    p Şimdilik "Lorem Ipsum" yerine bu yazılar kalsın.

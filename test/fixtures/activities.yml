@@ -1,15 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  body: MyString
-  cover: MyString
-  date: 2017-12-06
-  place: MyString
+  name: MyString
+  speaker: MyString
+  date: MyString
+  detail: MyString
+  location: MyString
+  poster: MyString
 
 two:
-  title: MyString
-  body: MyString
-  cover: MyString
-  date: 2017-12-06
-  place: MyString
+  name: MyString
+  speaker: MyString
+  date: MyString
+  detail: MyString
+  location: MyString
+  poster: MyString

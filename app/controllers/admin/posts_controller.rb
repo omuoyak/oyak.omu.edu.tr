@@ -14,6 +14,7 @@ class Admin::PostsController < AdminController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     if @post.save
       redirect_to admin_post_path(@post), notice: 'Eklendi'
     else

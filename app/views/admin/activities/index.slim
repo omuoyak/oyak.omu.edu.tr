@@ -1,0 +1,20 @@
+table.table.table-striped
+  thead
+    tr
+      th Başlık
+      th Tarih
+      th İşlem
+  tbody
+    -@activities.each do |activity|
+      tr
+        td=activity.name
+        td=time_tag(activity.date.to_date)
+        td
+          =link_to admin_activity_path(activity), class:"btn btn-xs btn-primary" do
+            i.fa.fa-eye
+          |&nbsp;&nbsp;
+          =link_to edit_admin_activity_path(activity), class:"btn btn-xs btn-warning" do
+            i.fa.fa-edit
+          |&nbsp;&nbsp;
+          =link_to admin_activity_path(activity), method: :delete, data: {confirm: "Emin misin?"}, class:"btn btn-xs btn-danger" do
+            i.fa.fa-trash

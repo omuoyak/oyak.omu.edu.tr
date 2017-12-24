@@ -1,19 +1,11 @@
-class CoverUploader < CarrierWave::Uploader::Base
-
+class PosterUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
   storage :file
 
-  # Override the directory where uploaded files will be stored.
   def store_dir
-    "#{model.created_at.strftime("%Y/%m/%d")}/yazi/#{model.id}"
+    "#{model.created_at.strftime("%Y/%m/%d")}/etkinlik/#{model.id}"
   end
 
-  # Process files as they are uploaded:
-  # process scale: [200, 300]
-  #
-  # def scale(width, height)
-  #   # do something
-  # end
   def default_url(*args)
     "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   end
@@ -24,7 +16,12 @@ class CoverUploader < CarrierWave::Uploader::Base
   end
 
   version :display do
-    process resize_to_fill: [700, 350]
+    process resize_to_fit: [400, nil]
+    process :optimize
+  end
+
+  version :large do
+    process resize_to_fit: [1000, nil]
     process :optimize
   end
 
@@ -36,7 +33,7 @@ class CoverUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    "#{model.title.parameterize}.jpg" if original_filename
+    "#{model.name.parameterize}.jpg" if original_filename
   end
 
   def optimize
