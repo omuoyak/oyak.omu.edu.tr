@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   private
 
   def latest_posts
-    Rails.cache.fetch('latest_posts'){ Post.last(5).reverse }
+    Rails.cache.fetch('latest_posts'){ Post.where(approved: true).last(5).reverse }
   end
 
   def latest_activities

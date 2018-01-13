@@ -3,6 +3,7 @@ class Admin::ActivitiesController < AdminController
 
   def new
     @activity = Activity.new
+    authorize @activity
   end
 
   def index
@@ -10,7 +11,10 @@ class Admin::ActivitiesController < AdminController
   end
 
   def show; end
-  def edit; end
+
+  def edit
+    authorize @activity
+  end
 
   def create
     tbs_id = activity_params[:tbs_id].to_i
@@ -19,7 +23,7 @@ class Admin::ActivitiesController < AdminController
     else
       @activity = Activity.new(activity_params)
     end
-
+    authorize @activity
     if @activity.save
       redirect_to admin_activity_path(@activity), notice: 'Eklendi'
     else
@@ -28,6 +32,7 @@ class Admin::ActivitiesController < AdminController
   end
 
   def update
+    authorize @activity
     if @activity.update activity_params
       redirect_to admin_activity_path(@activity), notice: 'Güncellendi'
     else

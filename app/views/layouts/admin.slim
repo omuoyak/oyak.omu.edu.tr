@@ -15,4 +15,7 @@ html
   body
     = render 'admin_navbar'
     .container
+      -if flash[:alert]
+        .alert.alert-danger
+          =flash[:alert]
       = yield

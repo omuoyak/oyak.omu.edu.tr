@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   authenticate :user do
     scope :admin, module: :admin, as:'admin' do
       get '/', to: 'main#home',  as:"root"
-      resources :posts
+      resources :posts do
+        post 'ch_state', to: 'posts#ch_state', as: 'ch_state'
+      end
       resources :activities
     end
   end

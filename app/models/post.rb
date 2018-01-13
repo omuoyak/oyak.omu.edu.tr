@@ -3,7 +3,7 @@ class Post < ApplicationRecord
 
   has_and_belongs_to_many :categories
   belongs_to :user
-  before_create :sef
+  before_create :do_before
 
   after_commit on: [:create] do
     clear_caches
@@ -21,8 +21,9 @@ class Post < ApplicationRecord
     "#{sef_link}--#{id}.html"
   end
 
-  def sef
+  def do_before
     self.sef_link = title.parameterize unless sef_link?
+    self.approved = true if user.role == 'admin'
   end
 
   private
