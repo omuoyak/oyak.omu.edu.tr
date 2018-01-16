@@ -31,13 +31,14 @@
     hr
     h1 Etkinlikler
     -@latest_activities.each do |activity|
-      .media
-        .media-left
-          =link_to show_activity_path(activity.url) do
-            =image_tag(activity.poster_url(:thumb), class:'media-object')
-        .media-body
-          h4.media-heading =link_to activity.name, show_activity_path(activity.url)
-          =time_tag(activity.date.to_date)
+      .col-xs-12.col-sm-8.col-md-6
+        .thumbnail
+          =image_tag activity.poster_url(:display)
+          .caption style="text-align:center;"
+            h4=truncate(activity.name, length: 22)
+            p=time_tag(activity.date)
+            p
+              =link_to 'İncele', show_activity_path(activity.url), class: 'btn btn-danger'
   .col-md-6
     hr
     h1 Yazılar
