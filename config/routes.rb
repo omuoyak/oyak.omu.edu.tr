@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'categories/index'
+  end
+
+  namespace :admin do
+    get 'categories/new'
+  end
+
+  namespace :admin do
+    get 'categories/edit'
+  end
+
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#index'
