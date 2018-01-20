@@ -14,3 +14,14 @@ nav.navbar.navbar-default
         li.active=link_to 'Anasayfa', root_path
         li=link_to 'Blog', show_blog_path
         li=link_to 'Etkinlikler', show_activities_path
+      - if(user_signed_in? == true)
+        div.dropdown
+          ul.nav.navbar-nav.navbar-right
+            button.btn.btn-secondary.dropdown-toggle type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
+              span.caret
+              b=current_user.name
+            div.dropdown-menu aria-labelledby="dropdownMenuButton"
+              li= link_to 'Yönetim Paneli', admin_root_path
+            
+              li.divider
+              li= link_to 'Çıkış Yap', destroy_user_session_path, method: :delete
