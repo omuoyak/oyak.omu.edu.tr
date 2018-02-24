@@ -1,19 +1,8 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'categories/index'
-  end
-
-  namespace :admin do
-    get 'categories/new'
-  end
-
-  namespace :admin do
-    get 'categories/edit'
-  end
-
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#index'
+  get 'category/:sef', to: 'categories#show', as: 'show_category'  
   get 'yazi/:sef', to: 'posts#show', as: 'show_post'
   get 'etkinlik/:sef', to: 'activities#show', as: 'show_activity'
   get 'blog', to: 'posts#index', as: 'show_blog'
@@ -27,6 +16,7 @@ Rails.application.routes.draw do
         post 'ch_state', to: 'posts#ch_state', as: 'ch_state'
       end
       resources :activities
+      resources :categories
     end
   end
 
