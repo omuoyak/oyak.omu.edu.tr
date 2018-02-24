@@ -1,0 +1,20 @@
+table.table.table-striped
+  thead
+    tr
+      th Başlık
+      th Açıklama
+      th Anahtar Kelimeler
+      th İşlemler
+  tbody
+    -@categories.each do |category|
+      tr
+        td=category.title
+        td=category.description
+        td=category.keywords
+        td
+          =link_to edit_admin_category_path(category), class:"btn btn-xs btn-warning" do
+            i.fa.fa-edit
+          |&nbsp;&nbsp;
+          =link_to admin_category_path(category), method: :delete, data: {confirm: "Emin misin?"}, class:"btn btn-xs btn-danger" do
+            i.fa.fa-trash
+=link_to 'Yeni Kategori Ekle', new_admin_category_path, class:'btn btn-success'
