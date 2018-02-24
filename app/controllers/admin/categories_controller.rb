@@ -36,7 +36,10 @@ class Admin::CategoriesController < AdminController
   def destroy
     authorize @category
     @category.destroy!
-    redirect_to admin_categories_path, alert: 'Kategori Silindi'
+    redirect_to admin_categories_path, alert: "Kategori Silindi.
+    Girdiler arasında bu kategoriye sahip olan varsa girdiyi düzenleyerek 
+    başka bir kategoriye atayınız.
+    Aksi taktirde girdi ziyaretçiler tarafından görüntülenemeyecektir."
   end
 
 
