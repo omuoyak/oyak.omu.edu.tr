@@ -1,0 +1,2 @@
+class Suggestion < ApplicationRecord
+end
