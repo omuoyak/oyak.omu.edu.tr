@@ -14,6 +14,7 @@ nav.navbar.navbar-default
         li.active=link_to 'Anasayfa', root_path
         li=link_to 'Blog', show_blog_path
         li=link_to 'Etkinlikler', show_activities_path
+        li=link_to 'Önerilen Makaleler', show_suggestions_path
         li=link_to 'Dokümantasyon', 'https://github.com/omuoyak/dokumantasyon'
       - if(user_signed_in? == true)
         div.dropdown
