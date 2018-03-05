@@ -1,0 +1,18 @@
+table.table.table-striped
+  thead
+    tr
+      th Başlık
+      th Açıklama
+      th İşlemler
+  tbody
+    -@suggestions.each do |suggestion|
+      tr
+        td=suggestion.title
+        td=suggestion.description
+        td
+          =link_to edit_admin_suggestion_path(suggestion), class:"btn btn-xs btn-warning" do
+            i.fa.fa-edit
+          |&nbsp;&nbsp;
+          =link_to admin_suggestion_path(suggestion), method: :delete, data: {confirm: "Emin misin?"}, class:"btn btn-xs btn-danger" do
+            i.fa.fa-trash
+=link_to 'Yeni Önerilen Makale Ekle', new_admin_suggestion_path, class:'btn btn-success'

@@ -1,0 +1,11 @@
+= simple_form_for(@suggestion, url: locals[:path], html: { class: 'form-horizontal' }) do |f|
+  -if @suggestion.errors.any?
+    =@suggestion.errors.full_messages.join(',')
+  .row
+    .col-md-8
+      div style="text-align:center;font-size:20px;"
+      = f.input :title, label: 'Önerilen Bağlantı Başlığı'
+      = f.input :description, label: 'Açıklama'
+      = f.input :link, label: 'Bağlantı'
+      = f.input :image, label: 'Resim Bağlantısı'
+      = f.button :submit, 'Kaydet', class:"btn btn-success"

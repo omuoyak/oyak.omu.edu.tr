@@ -1,0 +1,11 @@
+.row
+  -@suggestions.each do |suggestion|
+    .col-xs-12.col-sm-4.col-md-3
+      .thumbnail 
+        / TODO: Geçersiz adres girilirse (url olmayan) hata oluşuyor 
+        =image_tag suggestion.image unless suggestion.image.empty? 
+        .caption style="text-align:center;"
+          h4=truncate(suggestion.title, length: 22)
+          p=suggestion.description
+          p
+            =link_to 'Oku', suggestion.link, class: 'btn btn-danger'
