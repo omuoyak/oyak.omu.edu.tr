@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#index'
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   get 'blog', to: 'posts#index', as: 'show_blog'
   get 'etkinlikler', to: 'activities#index', as: 'show_activities'
   get 'dokumantasyon', to: 'home#docs', as: 'oyak_doc'
+  get 'suggestions', to: 'suggestions#index', as: 'show_suggestions'
 
   authenticate :user do
     scope :admin, module: :admin, as:'admin' do
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
       end
       resources :activities
       resources :categories
+      resources :suggestions
     end
   end
 
