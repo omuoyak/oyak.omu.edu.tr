@@ -17,7 +17,7 @@ class HomeController < ApplicationController
   end
 
   def latest_activities
-    Rails.cache.fetch('latest_activities'){ Activity.last(5).reverse }
+    Rails.cache.fetch('latest_activities'){ Activity.last(10).reverse }
   end
 
 end

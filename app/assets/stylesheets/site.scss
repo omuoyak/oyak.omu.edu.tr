@@ -35,3 +35,34 @@
     font-weight: 600;
   }
 }
+
+.owl-nav {
+  position: absolute;
+  top: -30px;
+  right: 0px;
+}
+
+.owl-carousel .owl-nav .owl-prev,
+  .owl-carousel .owl-nav .owl-next,
+  .owl-carousel .owl-dot {
+    font-family: 'fontAwesome';
+}
+
+.owl-prev, .owl-next {
+  width: 50%;
+  float:left;
+}
+
+
+.owl-carousel .owl-nav .owl-prev:before{
+    // fa-chevron-left
+    content: "\f053";
+    margin-right:10px;
+
+}
+.owl-carousel .owl-nav .owl-next:after{
+    //fa-chevron-right
+    content: "\f054";
+    margin-right:10px;
+
+}

@@ -15,3 +15,31 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jssocials.min
+//= require owl-carousel/owl.carousel.js
+//= require owl-carousel/owl.navigation.js
+//= require owl-carousel/owl.autoplay.js
+
+document.addEventListener('turbolinks:load', function(){
+  $('.owl-carousel').owlCarousel({
+    loop:true,
+    nav: true,
+    navText: [],
+    autoplay: true,
+    margin:10,
+    responsiveClass:true,
+    responsive:{
+        0:{
+          items:1
+        },
+        400: {
+          items: 2
+        },
+        600:{
+          items:3
+        },
+        1000:{
+          items:2,
+        }
+    }
+  })
+})

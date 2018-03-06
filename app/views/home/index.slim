@@ -30,8 +30,8 @@
   .col-md-6
     hr
     h1 Etkinlikler
-    -@latest_activities.each do |activity|
-      .col-xs-12.col-sm-8.col-md-6
+    .owl-carousel
+      -@latest_activities.each do |activity|
         .thumbnail
           =image_tag activity.poster_url(:display)
           .caption style="text-align:center;"
