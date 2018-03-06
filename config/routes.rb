@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'blog', to: 'posts#index', as: 'show_blog'
   get 'etkinlikler', to: 'activities#index', as: 'show_activities'
   get 'dokumantasyon', to: 'home#docs', as: 'oyak_doc'
-  get 'suggestions', to: 'suggestions#index', as: 'show_suggestions'
+  get 'onerilen-makaleler', to: 'suggestions#index', as: 'show_suggestions'
 
   authenticate :user do
     scope :admin, module: :admin, as:'admin' do

@@ -3,9 +3,10 @@
     .col-xs-12.col-sm-4.col-md-3
       .thumbnail 
         / TODO: Geçersiz adres girilirse (url olmayan) hata oluşuyor 
-        =image_tag suggestion.image unless suggestion.image.empty? 
+        =image_tag suggestion.image_url(:display) if suggestion.image? 
         .caption style="text-align:center;"
-          h4=truncate(suggestion.title, length: 22)
-          p=suggestion.description
-          p
-            =link_to 'Oku', suggestion.link, class: 'btn btn-danger'
+          h4 =truncate(suggestion.title, length: 22)
+          p =suggestion.description.html_safe
+          -if suggestion.has_link
+            p
+              =link_to 'Oku', suggestion.link, class: 'btn btn-danger', target: '_blank'
