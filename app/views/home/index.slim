@@ -51,3 +51,14 @@
         .media-body
           h4.media-heading =link_to post.title, show_post_path(post.url)
           =truncate(strip_tags(post.body), length: 60)
+    
+    h1 Önerilen Makaleler
+
+    -@latest_suggestions.each do |suggestion|
+      .media
+        .media-left
+          =link_to suggestion.link do
+            =image_tag suggestion.image_url(:display) if suggestion.image? 
+        .media-body
+          h4.media-heading =link_to suggestion.title, suggestion.link
+          =truncate(strip_tags(suggestion.description), length: 60)
