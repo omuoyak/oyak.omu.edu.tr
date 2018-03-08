@@ -57,8 +57,8 @@
     -@latest_suggestions.each do |suggestion|
       .media
         .media-left
-          =link_to suggestion.link do
-            =image_tag suggestion.image_url(:display) if suggestion.image? 
+          =link_to suggestion.link, target: :blank, rel: 'nofollow' do
+            =image_tag suggestion.image_url(:thumb) if suggestion.image? 
         .media-body
-          h4.media-heading =link_to suggestion.title, suggestion.link
+          h4.media-heading =link_to suggestion.title, suggestion.link, target: :blank, rel: 'nofollow'
           =truncate(strip_tags(suggestion.description), length: 60)
