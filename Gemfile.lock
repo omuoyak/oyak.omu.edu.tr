@@ -272,7 +272,7 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
-  bootstrap-sass (~> 3.3.6)
+  bootstrap-sass
   byebug
   capybara (~> 2.13)
   carrierwave
