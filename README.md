@@ -68,8 +68,8 @@ yapacağınız katkılarla bu projeye destek olabilir, insanların daha az acı
 
 
 ## Projede Kullanılan Teknolojiler
-* Ruby ( Version: 2.3.3)
-* Ruby on Rails ( Version: 5.1.6 )
+* Ruby ( Version: 2.5.1)
+* Ruby on Rails ( Version: 5.2.3 )
 * MySQL Veritabanı
 * RMagick ( Linux üzerine çalışıyor, diğer işletim sistemlerinde denenmemiştir)
 * Bootstrap ( "Kullanılan teknolojiler" bölümünde yer almaması gerekse de... )

@@ -1,4 +1,4 @@
-class CreateJoinTableBoardPerson < ActiveRecord::Migration[5.1]
+class CreateJoinTableBoardPerson < ActiveRecord::Migration[5.2]
   def change
     create_join_table :boards, :people do |t|
       # t.index [:board_id, :person_id]
