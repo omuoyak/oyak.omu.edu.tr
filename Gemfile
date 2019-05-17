@@ -5,14 +5,15 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.1.5'
+gem 'rails', '~> 5.2.3'
+gem 'bootsnap', ">= 1.4.4"
 gem "rack", ">= 2.0.6"
 gem "loofah", ">= 2.2.3"
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'puma', '~> 3.7'
-gem 'sassc'
+gem 'sassc-rails', '>= 2.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'slim'
 gem 'font-awesome-rails'
 gem 'pry'

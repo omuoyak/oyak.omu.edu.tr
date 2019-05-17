@@ -1,4 +1,4 @@
-class CreateBoards < ActiveRecord::Migration[5.1]
+class CreateBoards < ActiveRecord::Migration[5.2]
   def change
     create_table :boards do |t|
       t.date :start_date

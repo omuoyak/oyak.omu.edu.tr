@@ -1,4 +1,4 @@
-class CreateJoinTablePostCategory < ActiveRecord::Migration[5.1]
+class CreateJoinTablePostCategory < ActiveRecord::Migration[5.2]
   def change
     create_join_table :posts, :categories do |t|
       t.index [:post_id, :category_id]
