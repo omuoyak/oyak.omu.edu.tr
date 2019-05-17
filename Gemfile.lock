@@ -51,6 +51,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
+    archive-zip (0.12.0)
+      io-like (~> 0.3.0)
     arel (9.0.0)
     autoprefixer-rails (9.5.1)
       execjs
@@ -80,6 +82,9 @@ GEM
       mime-types (>= 1.16)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
+    chromedriver-helper (2.1.1)
+      archive-zip (~> 0.10)
+      nokogiri (~> 1.8)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -118,6 +123,7 @@ GEM
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     iconv (1.0.8)
+    io-like (0.3.0)
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -219,15 +225,20 @@ GEM
     rmagick (2.13.4)
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
+    sass (3.7.4)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+    sass-rails (5.0.7)
+      railties (>= 4.0.0, < 6)
+      sass (~> 3.1)
+      sprockets (>= 2.8, < 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
+      tilt (>= 1.1, < 3)
     sassc (2.0.1)
       ffi (~> 1.9)
       rake
-    sassc-rails (2.0.0)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
     selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
@@ -281,11 +292,12 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
-  bootsnap (>= 1.4.4)
+  bootsnap (>= 1.1.0)
   bootstrap-sass (~> 3.4.1)
   byebug
-  capybara (~> 2.13)
+  capybara (>= 2.15)
   carrierwave
+  chromedriver-helper
   coffee-rails (~> 4.2)
   devise
   font-awesome-rails
@@ -299,14 +311,13 @@ DEPENDENCIES
   loofah (>= 2.2.3)
   mysql2 (>= 0.3.18, < 0.5)
   pry
-  puma (~> 3.7)
+  puma (~> 3.11)
   pundit!
-  rack (>= 2.0.6)
   rails (~> 5.2.3)
   rails-i18n (~> 5.0.0)
   rails-settings-cached
   rmagick (~> 2.13.1)
-  sassc-rails (>= 2.0)
+  sass-rails (~> 5.0)
   selenium-webdriver
   simple_form
   slim
@@ -318,6 +329,9 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+
+RUBY VERSION
+   ruby 2.5.1p57
 
 BUNDLED WITH
    1.17.3
