@@ -6,6 +6,7 @@
           .card-header id="heading-#{suggestion.id}"
             h5.mb-0
               button.btn.btn-link.collapsed aria-controls="collapse-#{suggestion.id}" aria-expanded="false" data-target="#collapse-#{suggestion.id}" data-toggle="collapse" type="button" 
+                span.caret
                 =suggestion.title
           .collapse aria-labelledby="heading-#{suggestion.id}" data-parent="#accordionExample" id="collapse-#{suggestion.id}" 
             .card-body
