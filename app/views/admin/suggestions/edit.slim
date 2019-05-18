@@ -2,4 +2,5 @@
   .col-md-8
     =render 'form', locals: {path: admin_suggestion_path}
   .col-md-4
-    =image_tag @suggestion.image
+    -if @suggestion.image
+      =image_tag(@suggestion.image.url(:display), class:'img-responsive')
