@@ -222,7 +222,7 @@ GEM
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
       railties (>= 4.2.0, < 6.0)
-    rmagick (2.13.4)
+    rmagick (3.2.0)
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
     sassc (2.0.1)
@@ -311,7 +311,7 @@ DEPENDENCIES
   rails (~> 5.2.3)
   rails-i18n (~> 5.0.0)
   rails-settings-cached
-  rmagick (~> 2.13.1)
+  rmagick (~> 3.2)
   sassc-rails
   selenium-webdriver
   simple_form

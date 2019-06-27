@@ -1,0 +1,31 @@
+version: '3.1'
+services:
+  db:
+    image: mysql:8.0.16
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER_NAME=${MYSQL_USER_NAME}
+      - MYSQL_USER_PASSWORD=${MYSQL_USER_PASSWORD}
+    volumes:
+      - ./tmp/db:/var/lib/mysql
+    restart: always
+
+  web:
+    build: .
+    depends_on:
+      - db
+    links:
+      - db
+    environment:
+      - RAILS_ENV=production
+      - MYSQL_USER_NAME=${MYSQL_USER_NAME}
+      - MYSQL_USER_PASSWORD=${MYSQL_USER_PASSWORD}
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/oyak_omu_edu_tr
+    ports:
+      - "3000:3000"
+    restart: always
