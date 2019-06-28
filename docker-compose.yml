@@ -24,6 +24,7 @@ services:
       - SECRET_KEY_BASE=${SECRET_KEY_BASE}
       - MYSQL_USER_NAME=${MYSQL_USER_NAME}
       - MYSQL_USER_PASSWORD=${MYSQL_USER_PASSWORD}
+      - RAILS_SERVE_STATIC_FILES=true
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec puma -b unix:///oyak_omu_edu_tr/tmp/sockets/oyak_puma_unix.sock"
     volumes:
       - .:/oyak_omu_edu_tr
