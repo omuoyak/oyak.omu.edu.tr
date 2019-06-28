@@ -20,6 +20,6 @@ COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 
-EXPOSE 3000
+#EXPOSE 3000
 #HEALTHCHECK --interval=15s --timeout=5s --start-period=10s --retries=2 CMD curl -f 0.0.0.0:3000 || exit 1
 #CMD ["rails", "s", "-b", "0.0.0.0"]

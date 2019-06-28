@@ -1,6 +1,3 @@
-# BU DOSYA UYGULAMAYI DOCKER UYUMLU HALE GETİREBİLMEK İÇİN EKLENMİŞTİR
-# DOCKER İLE ÇALIŞACAKSANIZ BU DOSYANIN ADINI database.yml OLARAK DEĞİŞTİRİN.
-
 default: &default
   adapter: mysql2
   encoding: utf8
